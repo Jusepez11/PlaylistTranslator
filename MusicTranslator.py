@@ -26,6 +26,7 @@ def main():
     flow = InstalledAppFlow.from_client_secrets_file('secrets.json', SCOPES)
     credentials = flow.run_local_server(port=0)
     youtube = googleapiclient.discovery.build('youtube', 'v3', credentials=credentials)
+
     request = youtube.playlistItems().insert(
         part="snippet",
         body={
