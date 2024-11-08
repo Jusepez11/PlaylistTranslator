@@ -16,8 +16,8 @@ SCOPES = ['https://www.googleapis.com/auth/youtube.force-ssl']
 #Playlist and individual song to test
 playlistId = "PLrCCqE1vWhlxeIdKkB-J5LXJZiVpdyFiw" #Chill
 #videoId = "ljRAR8LXo1k" //previous one
-videoId = "KN8nJFLu1Rk" #IS IT TRUE TAME IMPALA
-
+#videoId = "KN8nJFLu1Rk" #IS IT TRUE TAME IMPALA
+videoId = 'Ej8RhiSv2-4'
 
 def main():
     #os.environ["OAUTHLIB_INSECURE_TRANSPORT"] = "1"
