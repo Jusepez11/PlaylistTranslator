@@ -1,3 +1,4 @@
+import json
 import os
 
 from oauth2client.service_account import ServiceAccountCredentials
@@ -17,12 +18,11 @@ SCOPES = ['https://www.googleapis.com/auth/youtube.force-ssl']
 playlistId = "PLrCCqE1vWhlxeIdKkB-J5LXJZiVpdyFiw" #Chill
 #videoId = "ljRAR8LXo1k" //previous one
 #videoId = "KN8nJFLu1Rk" #IS IT TRUE TAME IMPALA
-videoId = 'Ej8RhiSv2-4'
+#videoId = 'Ej8RhiSv2-4' #falling behind by laufey
+vId2 = 'PppNloWCMXg' #Human doddie
+videoId = 'H7-7TXXnw8I' #TURiSTA bad bunny
 
 def main():
-    #os.environ["OAUTHLIB_INSECURE_TRANSPORT"] = "1"
-
-    # Create an OAuth 2.0 flow
     flow = InstalledAppFlow.from_client_secrets_file('secrets.json', SCOPES)
     credentials = flow.run_local_server(port=0)
     youtube = googleapiclient.discovery.build('youtube', 'v3', credentials=credentials)
@@ -39,6 +39,7 @@ def main():
                 }
             }
         }
+
     )
     response = request.execute()
 
