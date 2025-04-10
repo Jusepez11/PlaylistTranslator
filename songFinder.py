@@ -80,7 +80,23 @@ class YouTube:
 
 class Spotify:
     def __init__(self):
-        pass
+        self.scope = "user-library-read"
+        self.secrets= json.load(open('API_KEY.json'))
+        self.client_id = self.secrets["client_id"]
+        self.client_secret = self.secrets["client_secret"]
+        self.sp = spotipy.Spotify(auth_manager=SpotifyOAuth(scope=self.scope, client_id=self.client_id, client_secret=self.client_secret, redirect_uri="http://127.0.0.1:8888/callback"))
+
+
+
+    def foo(self):
+        results = self.sp.playlist_items("1jd6zLcbbVrTuM9Lu4MRH1")
+
+
+        for idx, item in enumerate(results['items']):
+            track = item['track']
+            print(idx, track['artists'][0]['name'], " – ", track['name'])
+
+        print(results)
 
     def readPlaylist(self):
         pass
@@ -96,7 +112,10 @@ playlistId = "PLrCCqE1vWhlxeIdKkB-J5LXJZiVpdyFiw"
 videoId = "JI9kNg6wDMY"
 
 test = YouTube(playlistId)
+
+testSp = Spotify()
 if __name__ == "__main__":
+    testSp.foo()
     '''
     test.auth()
     test.searchSong("Passionfruit Drake")
